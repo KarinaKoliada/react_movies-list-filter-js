@@ -1,3 +1,4 @@
+/* eslint-disable function-paren-newline */
 import './App.scss';
 import { useState } from 'react';
 import { MoviesList } from './components/MoviesList';
@@ -11,6 +12,10 @@ export const App = () => {
       text.toLowerCase().includes(query.trim().toLowerCase()),
     ),
   );
+
+  const handleInputChange = event => {
+    setQuery(event.target.value);
+  };
 
   return (
     <div className="page">
@@ -27,7 +32,7 @@ export const App = () => {
                 className="input"
                 placeholder="Type search word"
                 value={query}
-                onChange={event => setQuery(event.target.value)}
+                onChange={handleInputChange}
               />
             </div>
           </div>
